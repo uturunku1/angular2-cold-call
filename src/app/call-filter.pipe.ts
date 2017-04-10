@@ -7,10 +7,16 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 })
 export class CallFilterPipe implements PipeTransform {
 
-  transform(calls: any) {
+  transform(calls: any, filter: any, text: any) {
 
-    if (calls) {
+    if (calls === undefined || text === undefined) return calls;
+
+    if (filter === '' || filter === undefined) {
       return calls;
+    } else if (filter === 'location') {
+      return calls.filter(function(call) {
+        return call.location.toLowerCase().includes(text.toLowerCase());
+      })
     }
   }
 
