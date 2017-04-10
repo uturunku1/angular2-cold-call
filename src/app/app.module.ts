@@ -10,6 +10,7 @@ import { routing } from './app.routing';
 import { UserComponent } from './user/user.component';
 import { CallFilterPipe } from './call-filter.pipe';
 import { EditCallComponent } from './edit-call/edit-call.component';
+import { DatePipe } from './date.pipe';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -25,7 +26,8 @@ export const firebaseConfig = {
     IndexComponent,
     UserComponent,
     CallFilterPipe,
-    EditCallComponent
+    EditCallComponent,
+    DatePipe
   ],
   imports: [
     BrowserModule,

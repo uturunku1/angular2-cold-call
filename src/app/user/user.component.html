@@ -8,7 +8,17 @@
 
 <input [(ngModel)]='text'>
 
-<div *ngFor='let call of calls | async | callFilter:filter:text'>
+<label>Timeframe</label>
+<select [(ngModel)]='filterByDate'>
+  <option></option>
+  <option value='on'>On</option>
+  <option value='before'>Before</option>
+  <option value='after'>After</option>
+</select>
+
+<input type='date' [(ngModel)]='selectedDate'>
+
+<div *ngFor='let call of calls | async | callFilter:filter:text | date:filterByDate:selectedDate'>
   <p>{{call.nameClient}}, {{call.nameCompany}}, {{call.location}}, {{call.date}}
     <span class='link' *ngIf='editCallForm == null' (click)="toggleEditForm(call)">edit</span>
     <span class='link' *ngIf='editCallForm == call' (click)="toggleEditForm(call)">hide</span>
