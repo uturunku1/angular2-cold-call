@@ -1,0 +1,13 @@
+<label>Filter calls by: </label>
+<select [(ngModel)]='filter'>
+  <option></option>
+  <option value='location'>Location</option>
+  <option value='business'>Business Name</option>
+  <option value='client'>Client Name</option>
+</select>
+
+<input [(ngModel)]='text'>
+
+<div *ngFor='let call of calls | async | callFilter:filter:text'>
+  <p>{{call.nameClient}}, {{call.nameCompany}}, {{call.location}}, {{call.date}}</p>
+</div>
