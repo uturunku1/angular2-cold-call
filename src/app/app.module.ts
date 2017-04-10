@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
-
+import { routing } from './app.routing';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -24,7 +24,7 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
-  
+    routing,
     AngularFireModule.initializeApp(firebaseConfig),
 
   ],

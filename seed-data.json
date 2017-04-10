@@ -1,0 +1,28 @@
+{
+  "calls":[{
+    "nameClient": "Stella",
+    "nameCompany": "Indie Ella",
+    "location": "Portland, OR",
+    "date": "4/3/17",
+    "phoneNumber": "5035556666",
+    "description": "No answer",
+    "points": 0
+
+    },{
+      "nameClient": "Mike",
+      "nameCompany": "Mike's company",
+      "location": "Yakima",
+      "date": "2/2/17",
+      "phoneNumber": "4484284",
+      "description": "Got an appointment!",
+      "points": 4
+    },{
+      "nameClient": "Jason",
+      "nameCompany": "Puppet",
+      "location": "Pasco, WA",
+      "date": "2/3/17",
+      "phoneNumber": "509383222",
+      "description": "Got rejected.",
+      "points": 1
+    }]
+}
