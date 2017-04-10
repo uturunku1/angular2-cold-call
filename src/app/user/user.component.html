@@ -9,5 +9,13 @@
 <input [(ngModel)]='text'>
 
 <div *ngFor='let call of calls | async | callFilter:filter:text'>
-  <p>{{call.nameClient}}, {{call.nameCompany}}, {{call.location}}, {{call.date}}</p>
+  <h3 (click)="checkDetails(call)" class="clickable"> {{call.nameCompany}}</h3>
+  <h4>{{call.nameClient}}</h4>
+  <p>
+    {{call.location}}
+  </p>
+  <p>
+      {{call.date}}
+  </p>
+
 </div>

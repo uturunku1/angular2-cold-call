@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { CallService } from '../call.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -10,11 +11,16 @@ import { CallService } from '../call.service';
 })
 export class UserComponent implements OnInit {
   calls: FirebaseListObservable<any[]>;
+  callId;
 
-  constructor(private callService: CallService) { }
+  constructor(private router: Router, private callService: CallService) { }
 
   ngOnInit() {
     this.calls = this.callService.getCalls();
+  }
+
+  checkDetails(clickedCall){
+    this.router.navigate(['calls', clickedCall.$key]);
   }
 
 }

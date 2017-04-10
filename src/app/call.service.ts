@@ -17,6 +17,9 @@ export class CallService {
   addCall(newCall: Call) {
     this.calls.push(newCall);
   }
+  getCallById(callId){
+    return this.angularFire.database.object('calls/' + callId)
+  }
 
 
 }

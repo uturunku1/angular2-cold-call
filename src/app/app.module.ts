@@ -9,6 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { routing } from './app.routing';
 import { UserComponent } from './user/user.component';
 import { CallFilterPipe } from './call-filter.pipe';
+import { CallDetailsComponent } from './call-details/call-details.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -23,7 +24,8 @@ export const firebaseConfig = {
     AppComponent,
     IndexComponent,
     UserComponent,
-    CallFilterPipe
+    CallFilterPipe,
+    CallDetailsComponent
   ],
   imports: [
     BrowserModule,
