@@ -1,12 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 
 
- /*begin    NAV BAR     STYLING*/
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Macondo', cursive;
+}
 
- /* end    NAV BAR     STYLING*/
+ /*begin    LIST    STYLING*/
+ .clickable:hover {
+  text-decoration: underline;
+  cursor: pointer;
+ }
+
+ /* end    LIST    STYLING*/
 
 
-  /*begin      STYLING*/
+  /*begin   DETAIL PAGE   STYLING*/
+
+  .detail-identifier-info {
+    color: rgba(0, 200, 200, 1);
+    font-size: 80%;
+    padding-left: 30px;
+    padding-right: 7px;
+  }
+
+  .detail-panel {
+    background-color: teal;
+  }
+
   /*end       STYLING*/
 
 

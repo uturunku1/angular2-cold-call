@@ -1,0 +1,14 @@
+<div class="panel detail-panel">
+  <div class="container">
+
+    <h2><span class="detail-identifier-info"> Company: </span>{{(callToDisplay | async)?.nameCompany}}</h2>
+    <h3><span class="detail-identifier-info"> Agent: </span>{{(callToDisplay | async)?.nameClient}}</h3>
+    <h4><span class="detail-identifier-info"> Location: </span>{{(callToDisplay | async)?.location}}</h4>
+    <h4><span class="detail-identifier-info"> Date: </span>{{(callToDisplay | async)?.date}}</h4>
+    <h4><span class="detail-identifier-info"> Email: </span>{{(callToDisplay | async)?.email}}</h4>
+    <h4><span class="detail-identifier-info"> Phone: </span>{{(callToDisplay | async)?.phoneNumber}}</h4>
+    <h4><span class="detail-identifier-info"> Description: </span>{{(callToDisplay | async)?.description}}</h4>
+    <h4><span class="detail-identifier-info"> Points: </span>{{(callToDisplay | async)?.points}}</h4>
+
+  </div>
+</div>

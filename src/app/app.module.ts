@@ -9,6 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { routing } from './app.routing';
 import { UserComponent } from './user/user.component';
 import { CallFilterPipe } from './call-filter.pipe';
+import { CallDetailsComponent } from './call-details/call-details.component';
 import { EditCallComponent } from './edit-call/edit-call.component';
 import { DatePipe } from './date.pipe';
 
@@ -27,7 +28,9 @@ export const firebaseConfig = {
     UserComponent,
     CallFilterPipe,
     EditCallComponent,
-    DatePipe
+    DatePipe,
+    CallDetailsComponent,
+    EditCallComponent
   ],
   imports: [
     BrowserModule,

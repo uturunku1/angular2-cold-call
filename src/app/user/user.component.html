@@ -19,12 +19,18 @@
 <input type='date' [(ngModel)]='selectedDate'>
 
 <div *ngFor='let call of calls | async | callFilter:filter:text | date:filterByDate:selectedDate'>
-  <p>{{call.nameClient}}, {{call.nameCompany}}, {{call.location}}, {{call.date}}
-    <span class='link' *ngIf='editCallForm == null' (click)="toggleEditForm(call)">edit</span>
-    <span class='link' *ngIf='editCallForm == call' (click)="toggleEditForm(call)">hide</span>
+  <h3 (click)="checkDetails(call)" class="clickable"> {{call.nameCompany}}</h3>
+  <h4>{{call.nameClient}}</h4>
+  <p>
+    {{call.location}}
   </p>
   <p>
-    {{call.points}} points
+      {{call.date}}
+      <span class='link' *ngIf='editCallForm == null' (click)="toggleEditForm(call)">edit</span>
+      <span class='link' *ngIf='editCallForm == call' (click)="toggleEditForm(call)">hide</span>
   </p>
+
+
+
   <app-edit-call *ngIf="editCallForm == call" [call]="call"></app-edit-call>
 </div>
