@@ -12,7 +12,7 @@ export class CallFilterPipe implements PipeTransform {
     if (calls === null) {
       return calls;
     } else {
-      if (filter === '' || filter === undefined) {
+      if (filter === '' || filter === undefined || text === undefined) {
         return calls.sort(function(a, b) {
           if(a.date > b.date) {
             return -1;
