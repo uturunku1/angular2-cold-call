@@ -12,7 +12,10 @@ export class CallService {
 
   getCalls(){
     return this.calls;
+  }
 
+  addCall(newCall: Call) {
+    this.calls.push(newCall);
   }
 
 
