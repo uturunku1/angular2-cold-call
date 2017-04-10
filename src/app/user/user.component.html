@@ -9,5 +9,12 @@
 <input [(ngModel)]='text'>
 
 <div *ngFor='let call of calls | async | callFilter:filter:text'>
-  <p>{{call.nameClient}}, {{call.nameCompany}}, {{call.location}}, {{call.date}}</p>
+  <p>{{call.nameClient}}, {{call.nameCompany}}, {{call.location}}, {{call.date}}
+    <span class='link' *ngIf='editCallForm == null' (click)="toggleEditForm(call)">edit</span>
+    <span class='link' *ngIf='editCallForm == call' (click)="toggleEditForm(call)">hide</span>
+  </p>
+  <p>
+    {{call.points}} points
+  </p>
+  <app-edit-call *ngIf="editCallForm == call" [call]="call"></app-edit-call>
 </div>

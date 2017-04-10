@@ -10,11 +10,20 @@ import { CallService } from '../call.service';
 })
 export class UserComponent implements OnInit {
   calls: FirebaseListObservable<any[]>;
+  editCallForm;
 
   constructor(private callService: CallService) { }
 
   ngOnInit() {
     this.calls = this.callService.getCalls();
+  }
+
+  toggleEditForm(call) {
+    if (this.editCallForm == call) {
+      this.editCallForm = null;
+    } else {
+      this.editCallForm = call;
+    }
   }
 
 }
