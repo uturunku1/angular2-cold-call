@@ -2,37 +2,37 @@
   <fieldset>
     <legend>Add a new phone call</legend>
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Client's name</label>
+      <label class="col-lg-2 control-label">Client's name</label>
       <div class="col-lg-10">
         <input type="text" class="form-control" #clientName>
       </div>
     </div>
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Company's name</label>
+      <label class="col-lg-2 control-label">Company's name</label>
       <div class="col-lg-10">
         <input type="text" class="form-control" #companyName>
       </div>
     </div>
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+      <label class="col-lg-2 control-label">Email</label>
       <div class="col-lg-10">
         <input type="text" class="form-control" #email>
       </div>
     </div>
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Location</label>
+      <label class="col-lg-2 control-label">Location</label>
       <div class="col-lg-10">
         <input type="text" class="form-control" #location>
       </div>
     </div>
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Date</label>
+      <label class="col-lg-2 control-label">Date</label>
       <div class="col-lg-10">
         <input type="date" class="form-control" #date>
       </div>
     </div>
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Phone Number</label>
+      <label class="col-lg-2 control-label">Phone Number</label>
       <div class="col-lg-10">
         <input type="text" class="form-control" #phoneNumber>
       </div>
@@ -45,11 +45,12 @@
       </div>
     </div>
     <label for="">Select your score points</label>
-    <select (change)="selectScore($event.value.target)">
+    <select (change)="selectScore($event.target.value)" class="form-control">
       <option value=0>0</option>
       <option value=1>1</option>
       <option value=2>2</option>
       <option value=3>3</option>
     </select>
   </fieldset>
+  <button (click)="submitCall(clientName.value, companyName.value, email.value, location.value, date.value, phoneNumber.value, description.value)" class="btn btn-primary">Add a phone call</button>
 </form>
