@@ -8,6 +8,7 @@ import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { routing } from './app.routing';
 import { UserComponent } from './user/user.component';
+import { CallFilterPipe } from './call-filter.pipe';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -21,7 +22,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     IndexComponent,
-    UserComponent
+    UserComponent,
+    CallFilterPipe
   ],
   imports: [
     BrowserModule,
