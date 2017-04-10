@@ -11,7 +11,11 @@ import { Router } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   calls: FirebaseListObservable<any[]>;
+<<<<<<< HEAD
   callId;
+=======
+  editCallForm;
+>>>>>>> 9356ef655bfcc70980851362651c8ff77f9ae41f
 
   constructor(private router: Router, private callService: CallService) { }
 
@@ -19,8 +23,17 @@ export class UserComponent implements OnInit {
     this.calls = this.callService.getCalls();
   }
 
+<<<<<<< HEAD
   checkDetails(clickedCall){
     this.router.navigate(['calls', clickedCall.$key]);
+=======
+  toggleEditForm(call) {
+    if (this.editCallForm == call) {
+      this.editCallForm = null;
+    } else {
+      this.editCallForm = call;
+    }
+>>>>>>> 9356ef655bfcc70980851362651c8ff77f9ae41f
   }
 
 }

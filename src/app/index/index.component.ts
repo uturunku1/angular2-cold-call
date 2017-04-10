@@ -12,7 +12,7 @@ import { CallService } from './../call.service';
 })
 export class IndexComponent implements OnInit {
 
-  points;
+  points: number = 0;
 
   constructor(public callService: CallService) { }
 
