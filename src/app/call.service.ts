@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Call } from './call.model';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
@@ -11,7 +12,7 @@ export class CallService {
 
   getCalls(){
     return this.calls;
-    
+
   }
 
 
