@@ -1,14 +1,22 @@
 <div class="panel detail-panel">
   <div class="container">
 
-    <h2><span class="detail-identifier-info"> Company: </span>{{(callToDisplay | async)?.nameCompany}}</h2>
-    <h3><span class="detail-identifier-info"> Agent: </span>{{(callToDisplay | async)?.nameClient}}</h3>
-    <h4><span class="detail-identifier-info"> Location: </span>{{(callToDisplay | async)?.location}}</h4>
-    <h4><span class="detail-identifier-info"> Date: </span>{{(callToDisplay | async)?.date}}</h4>
-    <h4><span class="detail-identifier-info"> Email: </span>{{(callToDisplay | async)?.email}}</h4>
-    <h4><span class="detail-identifier-info"> Phone: </span>{{(callToDisplay | async)?.phoneNumber}}</h4>
-    <h4><span class="detail-identifier-info"> Description: </span>{{(callToDisplay | async)?.description}}</h4>
-    <h4><span class="detail-identifier-info"> Points: </span>{{(callToDisplay | async)?.points}}</h4>
+    <h2><span class="detail-identifier-info"> Company: </span>{{callToDisplay?.nameCompany}}</h2>
+    <h3><span class="detail-identifier-info"> Agent: </span>{{callToDisplay?.nameClient}}</h3>
+    <h4><span class="detail-identifier-info"> Location: </span>{{callToDisplay?.location}}</h4>
+    <h4><span class="detail-identifier-info"> Date: </span>{{callToDisplay?.date}}</h4>
+    <h4><span class="detail-identifier-info"> Email: </span>{{callToDisplay?.email}}</h4>
+    <h4><span class="detail-identifier-info"> Phone: </span>{{callToDisplay?.phoneNumber}}</h4>
+    <h4><span class="detail-identifier-info"> Description: </span>{{callToDisplay?.description}}</h4>
+    <h4><span class="detail-identifier-info"> Points: </span>{{callToDisplay?.points}}</h4>
 
   </div>
 </div>
+<!-- <span class='link btn btn-info' *ngIf='editCallForm == null' (click)="toggleEditForm(call)">edit</span>
+<span class='link btn btn-success' *ngIf='editCallForm == call' (click)="toggleEditForm(call)">hide</span> <br> -->
+
+<button class='btn btn-info' (click)="toggleButton()">
+  <span *ngIf="!formShow">Edit this info</span>
+  <span *ngIf="formShow"><app-edit-call [call]='callToDisplay'></app-edit-call>
+</span>
+</button>

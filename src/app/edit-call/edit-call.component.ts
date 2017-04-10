@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CallService } from '../call.service';
+import { CallDetailsComponent } from '../call-details/call-details.component';
+import { Call } from '../call.model';
 
 @Component({
   selector: 'app-edit-call',
@@ -19,5 +21,5 @@ export class EditCallComponent implements OnInit {
     this.callService.updateCall(call);
   }
 
-  
+
 }

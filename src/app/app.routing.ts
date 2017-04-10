@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { UserComponent } from './user/user.component';
 import { CallDetailsComponent } from './call-details/call-details.component';
+import { EditCallComponent } from './edit-call/edit-call.component';
 
 
 
