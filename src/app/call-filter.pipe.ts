@@ -17,6 +17,14 @@ export class CallFilterPipe implements PipeTransform {
       return calls.filter(function(call) {
         return call.location.toLowerCase().includes(text.toLowerCase());
       })
+    } else if (filter === 'business') {
+      return calls.filter(function(call) {
+        return call.nameCompany.toLowerCase().includes(text.toLowerCase());
+      })
+    } else if (filter === 'client') {
+      return calls.filter(function(call) {
+        return call.nameClient.toLowerCase().includes(text.toLowerCase());
+      })
     }
   }
 
