@@ -24,7 +24,7 @@ select {
   color: black;
 }
 
-.navbar-link:hover {
+.navbar .navbar-link:hover {
   cursor: pointer;
   text-decoration: underline;
 }
