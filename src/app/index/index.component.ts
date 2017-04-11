@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit {
 
   points: number = 0;
 
-  constructor(public callService: CallService) { }
+  constructor(public callService: CallService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -26,6 +26,7 @@ export class IndexComponent implements OnInit {
   submitCall(clientName: string, companyName: string, email: string, location: string, date: string, phoneNumber: string, description: string){
     let newCall = new Call(clientName, companyName, email, location, date, phoneNumber, description, this.points);
     this.callService.addCall(newCall);
+    this.router.navigate(['user']);
   }
 
 }
