@@ -13,6 +13,7 @@ export class UserComponent implements OnInit {
   calls: FirebaseListObservable<any[]>;
   callId;
   // editCallForm;
+  editCallForm;
 
   constructor(private router: Router, private callService: CallService) { }
 
@@ -22,6 +23,14 @@ export class UserComponent implements OnInit {
 
   checkDetails(clickedCall){
     this.router.navigate(['calls', clickedCall.$key]);
+  }
+
+  toggleEditForm(call) {
+    if (this.editCallForm == call) {
+      this.editCallForm = null;
+    } else {
+      this.editCallForm = call;
+    }
   }
 
   // toggleEditForm(call) {

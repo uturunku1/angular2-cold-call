@@ -11,6 +11,7 @@ import { UserComponent } from './user/user.component';
 import { CallFilterPipe } from './call-filter.pipe';
 import { CallDetailsComponent } from './call-details/call-details.component';
 import { EditCallComponent } from './edit-call/edit-call.component';
+import { DatePipe } from './date.pipe';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -26,6 +27,8 @@ export const firebaseConfig = {
     IndexComponent,
     UserComponent,
     CallFilterPipe,
+    EditCallComponent,
+    DatePipe,
     CallDetailsComponent,
     EditCallComponent
   ],

@@ -17,7 +17,8 @@ export class CallService {
   addCall(newCall: Call) {
     this.calls.push(newCall);
   }
-  
+
+
   updateCall(call) {
     var callInFirebase = this.getCallById(call.$key);
     callInFirebase.update({

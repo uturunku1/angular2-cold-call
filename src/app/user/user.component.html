@@ -8,7 +8,21 @@
 
 <input [(ngModel)]='text'>
 
+<<<<<<< HEAD
 <div *ngFor='let call of calls | async | callFilter:filter:text'>
+=======
+<label>Timeframe</label>
+<select [(ngModel)]='filterByDate'>
+  <option></option>
+  <option value='on'>On</option>
+  <option value='before'>Before</option>
+  <option value='after'>After</option>
+</select>
+
+<input type='date' [(ngModel)]='selectedDate'>
+
+<div *ngFor='let call of calls | async | callFilter:filter:text | date:filterByDate:selectedDate'>
+>>>>>>> master
   <h3 (click)="checkDetails(call)" class="clickable"> {{call.nameCompany}}</h3>
   <h4>{{call.nameClient}}</h4>
   <p>
@@ -16,12 +30,19 @@
   </p>
   <p>
       {{call.date}}
+      <span class='link' *ngIf='editCallForm == null' (click)="toggleEditForm(call)">edit</span>
+      <span class='link' *ngIf='editCallForm == call' (click)="toggleEditForm(call)">hide</span>
   </p>
 
 
+<<<<<<< HEAD
     <!-- <span class='link' *ngIf='editCallForm == null' (click)="toggleEditForm(call)">edit</span>
     <span class='link' *ngIf='editCallForm == call' (click)="toggleEditForm(call)">hide</span>
 
 
   <app-edit-call *ngIf="editCallForm == call" [call]="call"></app-edit-call> -->
+=======
+
+  <app-edit-call *ngIf="editCallForm == call" [call]="call"></app-edit-call>
+>>>>>>> master
 </div>
