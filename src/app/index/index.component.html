@@ -45,12 +45,13 @@
       </div>
     </div>
     <label for="">Select your score points</label>
-    <select (change)="selectScore($event.target.value)" class="form-control">
+    <select (change)="selectScore($event.target.value)">
       <option value=0>0</option>
       <option value=1>1</option>
       <option value=2>2</option>
       <option value=3>3</option>
     </select>
   </fieldset>
+  <br>
   <button (click)="submitCall(clientName.value, companyName.value, email.value, location.value, date.value, phoneNumber.value, description.value)" class="btn btn-primary">Add a phone call</button>
 </form>

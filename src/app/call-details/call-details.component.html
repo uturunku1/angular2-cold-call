@@ -17,7 +17,7 @@
 
 
 <div *ngIf="!formShow">
-  <button class='btn btn-info' (click)="show()">edit this info</button>
+  <button class='btn btn-primary' (click)="show()">edit this info</button>
 </div>
 <div *ngIf="formShow">
   <app-edit-call [call]='callToDisplay'></app-edit-call>
