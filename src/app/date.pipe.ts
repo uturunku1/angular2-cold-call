@@ -3,7 +3,6 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Pipe({
   name: 'date',
-  pure: false
 })
 export class DatePipe implements PipeTransform {
 

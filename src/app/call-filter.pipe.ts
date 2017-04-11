@@ -2,8 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Pipe({
-  name: 'callFilter',
-  pure: false
+  name: 'callFilter'
 })
 export class CallFilterPipe implements PipeTransform {
 
