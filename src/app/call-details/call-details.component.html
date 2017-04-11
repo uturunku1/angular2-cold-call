@@ -15,8 +15,10 @@
 <!-- <span class='link btn btn-info' *ngIf='editCallForm == null' (click)="toggleEditForm(call)">edit</span>
 <span class='link btn btn-success' *ngIf='editCallForm == call' (click)="toggleEditForm(call)">hide</span> <br> -->
 
-<button class='btn btn-info' (click)="toggleButton()">
-  <span *ngIf="!formShow">Edit this info</span>
-  <span *ngIf="formShow"><app-edit-call [call]='callToDisplay'></app-edit-call>
-</span>
-</button>
+
+<div *ngIf="!formShow">
+  <button class='btn btn-info' (click)="show()">edit this info</button>
+</div>
+<div *ngIf="formShow">
+  <app-edit-call [call]='callToDisplay'></app-edit-call>
+</div>

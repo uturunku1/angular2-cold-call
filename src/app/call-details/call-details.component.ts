@@ -31,8 +31,8 @@ export class CallDetailsComponent implements OnInit {
     });
   }
 
-  toggleButton(){
-    this.formShow =  !this.formShow;
+  show(){
+    this.formShow =  true;
   }
 
   //
