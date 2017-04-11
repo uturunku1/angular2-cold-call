@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Call } from './call.model';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class CallService {
   calls: FirebaseListObservable<any[]>;
 
-  constructor(private angularFire: AngularFire) {
+  constructor(private angularFire: AngularFire, private router: Router) {
     this.calls = angularFire.database.list('calls');
   }
 
@@ -35,6 +36,12 @@ export class CallService {
 
   getCallById(id: string) {
     return this.angularFire.database.object('calls/' + id);
+  }
+
+  deleteFromFirebase(thisCall){
+    var callInFirebase = this.getCallById(thisCall.$key);
+    callInFirebase.remove();
+    this.router.navigate(['user']);
   }
 
 

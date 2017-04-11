@@ -21,5 +21,9 @@ export class EditCallComponent implements OnInit {
     this.callService.updateCall(call);
   }
 
+  delete(call){
+    this.callService.deleteFromFirebase(call);
+  }
+
 
 }
