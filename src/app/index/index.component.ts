@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Call } from './../call.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { CallService } from './../call.service';
 
@@ -11,22 +11,31 @@ import { CallService } from './../call.service';
   providers: [CallService]
 })
 export class IndexComponent implements OnInit {
-
+  calls: FirebaseListObservable<any[]>;
   points: number = 0;
+  userId;
 
-  constructor(public callService: CallService, private router: Router) { }
+  constructor(public callService: CallService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.forEach((urlParameter) => {
+      this.userId = urlParameter['id'];
+    });
+    this.calls = this.callService.getCallsUserId(this.userId);
   }
 
   selectScore(selectedNumber){
     this.points= selectedNumber;
   }
 
-  submitCall(clientName: string, companyName: string, email: string, location: string, date: string, phoneNumber: string, description: string){
-    let newCall = new Call(clientName, companyName, email, location, date, phoneNumber, description, this.points);
+  getUserId(){
+
+  }
+
+  submitCall(clientName: string, companyName: string, email: string, location: string, date: string, phoneNumber: string, description: string, userId: string){
+    let newCall = new Call(clientName, companyName, email, location, date, phoneNumber, description, this.points, this.userId);
     this.callService.addCall(newCall);
-    this.router.navigate(['user']);
+    this.router.navigate(['user', this.userId]);
   }
 
 }

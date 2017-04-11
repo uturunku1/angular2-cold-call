@@ -44,5 +44,14 @@ export class CallService {
     this.router.navigate(['user']);
   }
 
+  getCallsUserId(id: string) {
+    return this.angularFire.database.list('/calls/', {
+      query: {
+        orderByChild: 'userId',
+        equalTo: id
+      }
+    });
+  }
+
 
 }

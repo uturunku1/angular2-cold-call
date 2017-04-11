@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {AF} from "../providers/af";
 import {Router} from "@angular/router";
 @Component({
@@ -7,12 +7,14 @@ import {Router} from "@angular/router";
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
+  // @Input userId;
   constructor(public afService: AF, private router: Router) {}
 
   login() {
     this.afService.loginWithGoogle().then((data) => {
+
       // Send them to the homepage if they are logged in
-      this.router.navigate(['']);
+      this.router.navigate(['index/', data.uid]);
     })
   }
 }

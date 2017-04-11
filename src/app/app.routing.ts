@@ -9,11 +9,11 @@ import { LoginPageComponent } from './login-page/login-page.component';
 
 const appRoutes: Routes = [
   {
-    path:'',
+    path:'index/:id',
     component: IndexComponent
   },
   {
-    path:'user',
+    path:'user/:id',
     component: UserComponent
   },
   {

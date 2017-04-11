@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { CallService } from '../call.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -14,11 +15,15 @@ export class UserComponent implements OnInit {
   callId;
   // editCallForm;
   editCallForm;
+  userKey: string;
 
-  constructor(private router: Router, private callService: CallService) { }
+  constructor(private router: Router, private callService: CallService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.calls = this.callService.getCalls();
+    this.route.params.forEach((urlParameter) => {
+      this.userKey = urlParameter['id'];
+    });
+    this.calls = this.callService.getCallsUserId(this.userKey);
   }
 
   checkDetails(clickedCall){
