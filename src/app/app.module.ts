@@ -12,6 +12,9 @@ import { CallFilterPipe } from './call-filter.pipe';
 import { CallDetailsComponent } from './call-details/call-details.component';
 import { EditCallComponent } from './edit-call/edit-call.component';
 import { DatePipe } from './date.pipe';
+import {AF} from "./providers/af";
+import { LoginPageComponent } from './login-page/login-page.component';
+
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -30,7 +33,9 @@ export const firebaseConfig = {
     EditCallComponent,
     DatePipe,
     CallDetailsComponent,
-    EditCallComponent
+    EditCallComponent,
+    LoginPageComponent,
+    //providers: [AFLoginPageComponent],
   ],
   imports: [
     BrowserModule,
@@ -38,9 +43,10 @@ export const firebaseConfig = {
     HttpModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
+    //RouterModule.forRoot(routes)
 
   ],
-  providers: [],
+  providers: [AF],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@
   "calls":[{
     "nameClient": "Stella",
     "nameCompany": "Indie Ella",
+    "email": "blahblahblah@gmail.com",
     "location": "Portland, OR",
     "date": "2017/04/03",
     "phoneNumber": "5035556666",
@@ -11,6 +12,7 @@
     },{
       "nameClient": "Mike",
       "nameCompany": "Mike's company",
+      "email": "blahblahblah@gmail.com",
       "location": "Yakima",
       "date": "2015/02/02",
       "phoneNumber": "4484284",
@@ -19,10 +21,11 @@
     },{
       "nameClient": "Jason",
       "nameCompany": "Puppet",
+      "email": "blahblahblah@gmail.com",
       "location": "Pasco, WA",
       "date": "2016/02/03",
       "phoneNumber": "509383222",
       "description": "Got rejected.",
-      "points": 1
+      "points": 3
     }]
 }

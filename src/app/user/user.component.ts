@@ -3,6 +3,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { CallService } from '../call.service';
 import { Router } from '@angular/router';
 import { Call } from '../call.model';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -18,11 +19,11 @@ export class UserComponent implements OnInit {
   subscription;
   totalPoints: number[] = [];
   displayPoints: number = 0;
+  userKey: string;
 
-  constructor(private router: Router, private callService: CallService) { }
+  constructor(private router: Router, private callService: CallService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.calls = this.callService.getCalls();
 
     this.callService.getCalls().subscribe(result => {
       this.subscription = result;
@@ -33,6 +34,12 @@ export class UserComponent implements OnInit {
     });
     this.addTotalPoints(this.totalPoints);
     console.log(this.totalPoints);
+
+    this.route.params.forEach((urlParameter) => {
+      this.userKey = urlParameter['id'];
+    });
+    this.calls = this.callService.getCallsUserId(this.userKey);
+
   }
 
   checkDetails(clickedCall){

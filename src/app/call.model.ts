@@ -6,5 +6,6 @@ export class Call {
     public date: string,
     public phoneNumber: string,
     public description: string,
-    public points: number){}
+    public points: number,
+    public userId: string){}
 }
