@@ -15,7 +15,7 @@ import { EditCallComponent } from '../edit-call/edit-call.component'
 export class CallDetailsComponent implements OnInit {
   callToDisplay;
   callId: string;
-  // editCallForm;
+  editCallForm;
   formShow = false;
   constructor(private activatedRoute: ActivatedRoute,
     private location: Location,
@@ -27,7 +27,6 @@ export class CallDetailsComponent implements OnInit {
     });
     this.callService.getCallById(this.callId).subscribe(dataLastEmittedFromObserver=>{
       this.callToDisplay = dataLastEmittedFromObserver;
-      console.log(this.callToDisplay);
     });
   }
 
