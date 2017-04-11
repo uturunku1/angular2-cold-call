@@ -2,13 +2,22 @@ import { Injectable } from '@angular/core';
 import { Call } from './call.model';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Router } from '@angular/router';
+import { AF } from "./providers/af";
 
 @Injectable()
 export class CallService {
   calls: FirebaseListObservable<any[]>;
+  private userId: string;
 
-  constructor(private angularFire: AngularFire, private router: Router) {
+  constructor(private angularFire: AngularFire, private router: Router, public afService: AF) {
     this.calls = angularFire.database.list('calls');
+
+    this.afService.af.auth.subscribe(
+      (auth) => {
+
+          this.userId = auth.uid;
+      }
+    );
   }
 
   getCalls(){
@@ -19,19 +28,19 @@ export class CallService {
     this.calls.push(newCall);
   }
 
-
   updateCall(call) {
     var callInFirebase = this.getCallById(call.$key);
     callInFirebase.update({
       nameClient: call.nameClient,
       nameCompany: call.nameCompany,
-      // email: call.email,
+      email: call.email,
       location: call.location,
       date: call.date,
       phoneNumber: call.phoneNumber,
       description: call.description,
       points: call.points
     });
+    location.reload();
   }
 
   getCallById(id: string) {
@@ -41,7 +50,7 @@ export class CallService {
   deleteFromFirebase(thisCall){
     var callInFirebase = this.getCallById(thisCall.$key);
     callInFirebase.remove();
-    this.router.navigate(['user']);
+    this.router.navigate(['user', this.userId]);
   }
 
   getCallsUserId(id: string) {

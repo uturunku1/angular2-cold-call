@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Call } from '../call.model';
 import { FirebaseObjectObservable } from 'angularfire2';
 import { Location } from '@angular/common';
