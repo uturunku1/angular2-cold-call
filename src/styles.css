@@ -24,7 +24,9 @@ select {
   color: black;
 }
 
-
+.tableViewIcon {
+  font-size: 2em;
+}
  /*begin    LIST    STYLING*/
  .clickable:hover {
   text-decoration: underline;

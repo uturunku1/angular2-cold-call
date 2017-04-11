@@ -7,8 +7,8 @@
     "date": "2017/04/03",
     "phoneNumber": "5035556666",
     "description": "No answer",
-    "points": 0
-
+    "points": 0,
+    "userId": "TtNq091iWtaGVB2tFx5gmWqaXmi2"
     },{
       "nameClient": "Mike",
       "nameCompany": "Mike's company",
@@ -17,7 +17,8 @@
       "date": "2015/02/02",
       "phoneNumber": "4484284",
       "description": "Got an appointment!",
-      "points": 4
+      "points": 4,
+      "userId": "TtNq091iWtaGVB2tFx5gmWqaXmi2"
     },{
       "nameClient": "Jason",
       "nameCompany": "Puppet",

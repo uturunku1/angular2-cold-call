@@ -20,25 +20,25 @@ export class UserComponent implements OnInit {
   totalPoints: number[] = [];
   displayPoints: number = 0;
   userKey: string;
+  tableView: boolean = false;
 
   constructor(private router: Router, private callService: CallService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-
-    this.callService.getCalls().subscribe(result => {
-      this.subscription = result;
-      this.subscription.forEach(call => {
-        this.totalPoints.push(call['points']);
-        this.addTotalPoints(this.totalPoints);
-      });
-    });
-    this.addTotalPoints(this.totalPoints);
-    console.log(this.totalPoints);
-
     this.route.params.forEach((urlParameter) => {
       this.userKey = urlParameter['id'];
     });
     this.calls = this.callService.getCallsUserId(this.userKey);
+
+    this.callService.getCallsUserId(this.userKey).subscribe(result => {
+      this.subscription = result;
+      this.subscription.forEach(call => {
+        this.totalPoints.push(parseInt(call['points']));
+        this.addTotalPoints(this.totalPoints);
+      });
+    });
+    this.addTotalPoints(this.totalPoints);
+
 
   }
 
@@ -50,6 +50,14 @@ export class UserComponent implements OnInit {
     this.displayPoints = 0;
     for (var i = 0; i < points.length; i++) {
       this.displayPoints += points[i];
+    }
+  }
+
+  toggleTableView() {
+    if (this.tableView) {
+      this.tableView = false;
+    } else {
+      this.tableView = true;
     }
   }
 
