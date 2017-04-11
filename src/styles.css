@@ -1,5 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-
+/*begin  GLOBAL    STYLING*/
 
 body,
 h1,
@@ -24,40 +23,49 @@ select {
   color: black;
 }
 
-.tableViewIcon {
-  font-size: 2em;
+.navbar .navbar-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
- /*begin    LIST    STYLING*/
+
+/*end     GLOBAL   STYLING*/
+
+
+ /*begin    USER LIST    STYLING*/
  .clickable:hover {
   text-decoration: underline;
   cursor: pointer;
  }
 
- /* end    LIST    STYLING*/
+ .tableViewIcon {
+   font-size: 2em;
+ }
+
+ /* end    USER LIST    STYLING*/
 
 
   /*begin   DETAIL PAGE   STYLING*/
 
-  .detail-identifier-info {
-    color: black;
-    font-size: 80%;
-    padding-left: 30px;
-    padding-right: 7px;
-  }
+.detail-identifier-info {
+  color: black;
+  font-size: 80%;
+  padding-left: 30px;
+  padding-right: 7px;
+}
 
-  .detail-panel {
-    background-color: teal;
-    border-radius: 5px;
-  }
+.detail-panel {
+  background-color: teal;
+  border-radius: 5px;
+}
 
   /*end   DETAIL PAGE    STYLING*/
 
 
   /*begin   EDIT FORM   STYLING*/
 
-  .edit-description-textarea {
-    width: 80%;
-  }
+.edit-description-textarea {
+  width: 80%;
+}
 
   /*end    EDIT FORM    STYLING*/
 

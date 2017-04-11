@@ -3,14 +3,15 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" (click)="goToUserIndex(userId)">Cold Calls </a>
+      <a class="navbar-brand navbar-link" (click)="goToUserIndex(userId)">Cold Calls </a>
     </div>
 
     <div>
       <ul class="nav navbar-nav">
-        <li ><a (click)="goToUser(userId)">List of calls<span class="sr-only">(current)</span></a></li>
+
+        <li ><a (click)="goToUser(userId)" class="navbar-link">List of calls<span class="sr-only">(current)</span></a></li>
         <li *ngIf="isLoggedIn">
-          <a (click)="logout()">Logout</a>
+          <a (click)="logout()" class="navbar-link">Logout</a>
         </li>
       </ul>
     </div>
