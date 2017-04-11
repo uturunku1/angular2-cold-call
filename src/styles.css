@@ -48,7 +48,17 @@ select {
     border-radius: 5px;
   }
 
-  /*end       STYLING*/
+  /*end   DETAIL PAGE    STYLING*/
+
+
+  /*begin   EDIT FORM   STYLING*/
+
+  .edit-description-textarea {
+    width: 80%;
+  }
+
+  /*end    EDIT FORM    STYLING*/
+
 
 
   /*begin      STYLING*/

@@ -1,22 +1,22 @@
 
-<label>Client name: </label>
-<input [(ngModel)]="call.nameClient">
-<label>Business name: </label>
+<label>Company: </label>
 <input [(ngModel)]="call.nameCompany">
+<label>Agent: </label>
+<input [(ngModel)]="call.nameClient">
 <br><br>
-<label>email: </label>
-<input [(ngModel)]="call.email">
 <label>Location: </label>
 <input [(ngModel)]="call.phoneNumber">
-<br>
-<label>Description: </label>
-<textarea [(ngModel)]="call.location"></textarea>
-<br><br>
 <label>Date: </label>
 <input [(ngModel)]="call.date">
+<label>email: </label>
+<input [(ngModel)]="call.email">
+<br><br>
 <label>Phone: </label>
 <input [(ngModel)]="call.description">
 <label>Points: </label>
 <input [(ngModel)]="call.points">
+<br><br>
+<label >Description: </label> <br>
+<textarea class="form-control edit-description-textarea" [(ngModel)]="call.location"></textarea>
 <br><br>
 <button class="btn btn-primary" (click)="submitEdit(call)">Submit</button>
