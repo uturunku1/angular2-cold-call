@@ -24,6 +24,11 @@ select {
   color: black;
 }
 
+.navbar-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 
  /*begin    LIST    STYLING*/
  .clickable:hover {
