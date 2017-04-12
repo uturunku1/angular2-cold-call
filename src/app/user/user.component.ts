@@ -13,20 +13,21 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   calls: FirebaseListObservable<any[]>;
+
+  displayPoints: number[] = [0, 0, 0, 0, 0];
   todaysPoints: number[] = [];
-  // todaysPointsTotal: number = 0;
+  totalPoints: number[] = [];
   pointsFromCustomDate: number[] = [];
+  today: Date;
+  todayFormatted;
+  pointsFromDate;
+
   callId;
   editCallForm;
   callToDisplay: Call;
   subscription;
-  totalPoints: number[] = [];
-  displayPoints: number[] = [0, 0, 0, 0, 0];
   userKey: string;
   tableView: boolean = false;
-  today: Date;
-  todayFormatted;
-  pointsFromDate;
 
   constructor(private router: Router, private callService: CallService, private route: ActivatedRoute) { }
 
@@ -54,7 +55,6 @@ export class UserComponent implements OnInit {
         this.calculatePoints(this.totalPoints, 3);
       });
     });
-    // this.calculatePoints(this.totalPoints, 3);
   }
 
   pointsSinceDate(callDate) {
