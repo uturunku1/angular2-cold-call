@@ -21,10 +21,14 @@ export class UserComponent implements OnInit {
   displayPoints: number = 0;
   userKey: string;
   tableView: boolean = false;
+  today: Date;
 
   constructor(private router: Router, private callService: CallService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.today = new Date();
+    console.log(this.today.getFullYear() + "/" + this.today.getMonth() + "/" + this.today.getDate());
+    // console.log(this.today.toLocalteDateString("en-UK"));
     this.route.params.forEach((urlParameter) => {
       this.userKey = urlParameter['id'];
     });

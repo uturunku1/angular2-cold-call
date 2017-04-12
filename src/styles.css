@@ -41,6 +41,14 @@ select {
    font-size: 2em;
  }
 
+ .list-tile-points {
+   color: teal;
+ }
+
+ .list-tile-indent {
+   padding-left: 15px;
+ }
+
  /* end    USER LIST    STYLING*/
 
 

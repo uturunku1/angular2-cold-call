@@ -18,10 +18,10 @@
 
 <input type='date' [(ngModel)]='selectedDate'>
 <label (click)='toggleTableView()'><span class="tableViewIcon">&nbsp;&#8862;</span></label>
-<p>{{displayPoints}}</p>
+<h2>User Point Total: {{displayPoints}}</h2>
 
 <div *ngIf="tableView">
-  <table class="table table-striped table-hover">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>Date</th>
@@ -34,7 +34,7 @@
       </tr>
     </thead>
     <tbody *ngFor='let call of calls | async | callFilter:filter:text | date:filterByDate:selectedDate'>
-      <tr>
+      <tr (click)="checkDetails(call)" class="clickable">
         <td>{{call.date}}</td>
         <td>{{call.nameCompany}}</td>
         <td>{{call.nameClient}}</td>
@@ -53,9 +53,10 @@
 
   <div *ngIf="!tableView">
     <h3 (click)="checkDetails(call)" class="clickable"> {{call.nameCompany}}</h3>
-    <h4>{{call.nameClient}}</h4>
-    <p>{{call.location}} {{call.points}}</p>
-    <p>{{call.date}}</p>
+    <span class="list-tile-points list-tile-indent">{{call.points}}</span>
+    <h4 class="list-tile-indent">{{call.nameClient}}</h4>
+    <p class="list-tile-indent">{{call.location}}</p>
+    <p class="list-tile-indent">{{call.date}}</p>
   </div>
 
 

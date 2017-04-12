@@ -19,13 +19,12 @@ export class CallService {
     this.calls.push(newCall);
   }
 
-
   updateCall(call) {
     var callInFirebase = this.getCallById(call.$key);
     callInFirebase.update({
       nameClient: call.nameClient,
       nameCompany: call.nameCompany,
-      // email: call.email,
+      email: call.email,
       location: call.location,
       date: call.date,
       phoneNumber: call.phoneNumber,
