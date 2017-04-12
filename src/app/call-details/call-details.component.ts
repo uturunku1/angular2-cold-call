@@ -34,13 +34,13 @@ export class CallDetailsComponent implements OnInit {
     this.formShow =  true;
   }
 
-  //
-  // toggleEditForm(call) {
-  //   if (this.editCallForm == call) {
-  //     this.editCallForm = null;
-  //   } else {
-  //     this.editCallForm = call;
-  //   }
-  // }
+
+  toggleEditForm(call) {
+    if (this.editCallForm == call) {
+      this.editCallForm = null;
+    } else {
+      this.editCallForm = call;
+    }
+  }
 
 }

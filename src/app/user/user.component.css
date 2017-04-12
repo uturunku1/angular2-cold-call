@@ -53,3 +53,7 @@ td {
 #pointLabel {
   float: right;
 }
+
+.form-float {
+  float: right;
+}

@@ -104,4 +104,12 @@ export class UserComponent implements OnInit {
     }
   }
 
+  toggleEditForm(call) {
+    if (this.editCallForm == call) {
+      this.editCallForm = null;
+    } else {
+      this.editCallForm = call;
+    }
+  }
+
 }

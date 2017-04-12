@@ -33,6 +33,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
 
@@ -70,19 +71,21 @@
         <th>Number</th>
         <th>E-mail</th>
         <th>Points</th>
-        <th>Edit</th>
       </tr>
     </thead>
     <tbody *ngFor='let call of calls | async | callFilter:filter:text | date:filterByDate:selectedDate'>
-      <tr (click)="checkDetails(call)" class="clickable">
-        <td>{{call.date}}</td>
-        <td>{{call.nameCompany}}</td>
-        <td>{{call.nameClient}}</td>
-        <td>{{call.location}}</td>
-        <td>{{call.phoneNumber}}</td>
-        <td>{{call.email}}</td>
-        <td>{{call.points}}</td>
+      <tr>
+        <td (click)="checkDetails(call)" class="clickable">{{call.date}}</td>
+        <td (click)="checkDetails(call)" class="clickable">{{call.nameCompany}}</td>
+        <td (click)="checkDetails(call)" class="clickable">{{call.nameClient}}</td>
+        <td (click)="checkDetails(call)" class="clickable">{{call.location}}</td>
+        <td (click)="checkDetails(call)" class="clickable">{{call.phoneNumber}}</td>
+        <td (click)="checkDetails(call)" class="clickable">{{call.email}}</td>
+        <td (click)="checkDetails(call)" class="clickable">{{call.points}}</td>
+        <td><span class='link' *ngIf='editCallForm == null' (click)="toggleEditForm(call)">edit</span>
+        <span class='link' *ngIf='editCallForm == call' (click)="toggleEditForm(call)">hide</span></td>
       </tr>
+        <p><app-edit-call *ngIf="editCallForm == call" [call]="call"></app-edit-call></p>
     </tbody>
   </table>
 

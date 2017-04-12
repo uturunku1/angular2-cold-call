@@ -51,6 +51,7 @@ export class CallService {
     var callInFirebase = this.getCallById(thisCall.$key);
     callInFirebase.remove();
     this.router.navigate(['user', this.userId]);
+    location.reload();
   }
 
   getCallsUserId(id: string) {
