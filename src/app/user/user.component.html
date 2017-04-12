@@ -19,6 +19,7 @@
 <input type='date' [(ngModel)]='selectedDate'>
 <label (click)='toggleTableView()'><span class="tableViewIcon">&nbsp;&#8862;</span></label>
 <h2>User Point Total: {{displayPoints[3]}}, Today's Points: {{displayPoints[0]}}</h2>
+Points since <input [(ngModel)]='date' type='date' (change)='setDate(date)'><span *ngIf='displayPoints[1] > 0'>{{displayPoints[1]}}</span>
 
 <div *ngIf="!tableView">
   <table class="table table-hover">

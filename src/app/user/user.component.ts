@@ -14,7 +14,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class UserComponent implements OnInit {
   calls: FirebaseListObservable<any[]>;
   todaysPoints: number[] = [];
-  todaysPointsTotal: number = 0;
+  // todaysPointsTotal: number = 0;
+  pointsFromCustomDate: number[] = [];
   callId;
   editCallForm;
   callToDisplay: Call;
@@ -25,12 +26,14 @@ export class UserComponent implements OnInit {
   tableView: boolean = false;
   today: Date;
   todayFormatted;
+  pointsFromDate;
 
   constructor(private router: Router, private callService: CallService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.today = new Date();
     this.todayFormatted = this.today.getFullYear() + "-" + "0" + (this.today.getMonth() + 1) + "-" + this.today.getDate();
+
     this.route.params.forEach((urlParameter) => {
       this.userKey = urlParameter['id'];
     });
@@ -40,17 +43,42 @@ export class UserComponent implements OnInit {
       this.subscription = result;
       this.subscription.forEach(call => {
         this.totalPoints.push(parseInt(call['points']));
-        if (this.addPointsByDate(call['date'])) {
+        if (this.isToday(call['date'])) {
           this.todaysPoints.push(parseInt(call['points']));
         }
-        this.calculatePoints(this.totalPoints, 3);
+        if (this.pointsSinceDate(call['date'])) {
+          this.pointsFromCustomDate.push(parseInt(call['points']));
+        }
         this.calculatePoints(this.todaysPoints, 0);
+        this.calculatePoints(this.pointsFromCustomDate, 1);
+        this.calculatePoints(this.totalPoints, 3);
+        console.log(this.displayPoints);
       });
     });
     // this.calculatePoints(this.totalPoints, 3);
   }
 
-  addPointsByDate(date) {
+  pointsSinceDate(callDate) {
+    if (callDate > this.pointsFromDate) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  setDate(selectedDate) {
+    this.pointsFromDate = selectedDate;
+    this.resetPoints();
+    this.ngOnInit();
+  }
+
+  resetPoints() {
+    this.todaysPoints = [];
+    this.pointsFromCustomDate = [];
+    this.totalPoints = [];
+  }
+
+  isToday(date) {
     if (date === this.todayFormatted) {
       return true;
     } else {
@@ -64,6 +92,8 @@ export class UserComponent implements OnInit {
 
   calculatePoints(points, pointType) {
     this.displayPoints[pointType] = 0;
+    console.log("reset?");
+    console.log(pointType);
     for (var i = 0; i < points.length; i++) {
       this.displayPoints[pointType] += points[i];
     }
