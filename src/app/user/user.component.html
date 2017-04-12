@@ -1,3 +1,42 @@
+
+
+<div id='scoreBoard'>
+  <div class='points'>
+    <div class='panel panel-info'>
+      <div class='panel-heading'>
+        <h3 class='panel-title'>Today's Points</h3>
+      </div>
+      <div class='panel-body'>
+        {{displayPoints[0]}}
+      </div>
+    </div>
+  </div>
+
+  <div class='points'>
+    <div class='panel panel-success'>
+      <div class='panel-heading'>
+        <h3 class='panel-title'>Lifetime Points</h3>
+      </div>
+      <div class='panel-body'>
+        {{displayPoints[3]}}
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf='displayPoints[1]' class='points'>
+    <div class='panel panel-primary'>
+      <div class='panel-heading'>
+        <h3 class='panel-title'>Points Since {{pointsFromDate}}</h3>
+      </div>
+      <div class='panel-body'>
+        {{displayPoints[1]}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p id='pointLabel'>Points since <input [(ngModel)]='date' type='date' (change)='setDate(date)'></p><br><br>
 <label>Filter calls by: </label>
 <select [(ngModel)]='filter'>
   <option></option>
@@ -18,8 +57,7 @@
 
 <input type='date' [(ngModel)]='selectedDate'>
 <label (click)='toggleTableView()'><span class="tableViewIcon">&nbsp;&#8862;</span></label>
-<h2>User Point Total: {{displayPoints[3]}}, Today's Points: {{displayPoints[0]}}</h2>
-Points since <input [(ngModel)]='date' type='date' (change)='setDate(date)'><span *ngIf='displayPoints[1] > 0'>{{displayPoints[1]}}</span>
+
 
 <div *ngIf="!tableView">
   <table class="table table-hover">

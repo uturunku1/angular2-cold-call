@@ -52,7 +52,6 @@ export class UserComponent implements OnInit {
         this.calculatePoints(this.todaysPoints, 0);
         this.calculatePoints(this.pointsFromCustomDate, 1);
         this.calculatePoints(this.totalPoints, 3);
-        console.log(this.displayPoints);
       });
     });
     // this.calculatePoints(this.totalPoints, 3);
@@ -92,8 +91,6 @@ export class UserComponent implements OnInit {
 
   calculatePoints(points, pointType) {
     this.displayPoints[pointType] = 0;
-    console.log("reset?");
-    console.log(pointType);
     for (var i = 0; i < points.length; i++) {
       this.displayPoints[pointType] += points[i];
     }
