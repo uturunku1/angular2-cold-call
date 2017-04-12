@@ -70,6 +70,7 @@
         <th>Number</th>
         <th>E-mail</th>
         <th>Points</th>
+        <th>Edit</th>
       </tr>
     </thead>
     <tbody *ngFor='let call of calls | async | callFilter:filter:text | date:filterByDate:selectedDate'>
