@@ -20,7 +20,7 @@
 <label (click)='toggleTableView()'><span class="tableViewIcon">&nbsp;&#8862;</span></label>
 <h2>User Point Total: {{displayPoints}}</h2>
 
-<div *ngIf="tableView">
+<div *ngIf="!tableView">
   <table class="table table-hover">
     <thead>
       <tr>
@@ -51,7 +51,7 @@
 
 <div *ngFor='let call of calls | async | callFilter:filter:text | date:filterByDate:selectedDate'>
 
-  <div *ngIf="!tableView">
+  <div *ngIf="tableView">
     <h3 (click)="checkDetails(call)" class="clickable"> {{call.nameCompany}}</h3>
     <span class="list-tile-points list-tile-indent">{{call.points}}</span>
     <h4 class="list-tile-indent">{{call.nameClient}}</h4>
