@@ -13,22 +13,24 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   calls: FirebaseListObservable<any[]>;
+  todaysPoints: number[] = [];
+  todaysPointsTotal: number = 0;
   callId;
   editCallForm;
   callToDisplay: Call;
   subscription;
   totalPoints: number[] = [];
-  displayPoints: number = 0;
+  displayPoints: number[] = [0, 0, 0, 0, 0];
   userKey: string;
   tableView: boolean = false;
   today: Date;
+  todayFormatted;
 
   constructor(private router: Router, private callService: CallService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.today = new Date();
-    console.log(this.today.getFullYear() + "/" + this.today.getMonth() + "/" + this.today.getDate());
-    // console.log(this.today.toLocalteDateString("en-UK"));
+    this.todayFormatted = this.today.getFullYear() + "-" + "0" + (this.today.getMonth() + 1) + "-" + this.today.getDate();
     this.route.params.forEach((urlParameter) => {
       this.userKey = urlParameter['id'];
     });
@@ -38,22 +40,32 @@ export class UserComponent implements OnInit {
       this.subscription = result;
       this.subscription.forEach(call => {
         this.totalPoints.push(parseInt(call['points']));
-        this.addTotalPoints(this.totalPoints);
+        if (this.addPointsByDate(call['date'])) {
+          this.todaysPoints.push(parseInt(call['points']));
+        }
+        this.calculatePoints(this.totalPoints, 3);
+        this.calculatePoints(this.todaysPoints, 0);
       });
     });
-    this.addTotalPoints(this.totalPoints);
+    // this.calculatePoints(this.totalPoints, 3);
+  }
 
-
+  addPointsByDate(date) {
+    if (date === this.todayFormatted) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   checkDetails(clickedCall){
     this.router.navigate(['calls', clickedCall.$key]);
   }
 
-  addTotalPoints(points) {
-    this.displayPoints = 0;
+  calculatePoints(points, pointType) {
+    this.displayPoints[pointType] = 0;
     for (var i = 0; i < points.length; i++) {
-      this.displayPoints += points[i];
+      this.displayPoints[pointType] += points[i];
     }
   }
 
