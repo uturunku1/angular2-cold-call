@@ -21,7 +21,7 @@ export class IndexComponent implements OnInit {
     this.route.params.forEach((urlParameter) => {
       this.userId = urlParameter['id'];
     });
-    this.calls = this.callService.getCallsUserId(this.userId);
+    // this.calls = this.callService.getCallsUserId(this.userId);
   }
 
   selectScore(selectedNumber){
