@@ -1,7 +1,7 @@
 <legend>Upcoming events in your calendar
   <div *ngIf='!calendarForm' (click)="toggleButton()" class="btn">
     + Add event
-  </div>
+  </div><br><br>
 </legend>
 {{currentDate}}
 <div *ngIf="calendarForm">
@@ -9,7 +9,7 @@
       <label>What?</label>
       <input #what class="form-control">
       <label>And when?</label>
-      <input type="date" class="form-control" #when>
+      <input type="date" class="form-control" #when><br>
       <span *ngIf='calendarForm' (click)="addToCalendar(what.value, when.value); what.value=''; when.value='';" class="btn btn-primary">Save</span>
     </form>
     <hr>
