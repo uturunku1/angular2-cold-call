@@ -51,15 +51,16 @@
         <option value=1>1</option>
         <option value=2>2</option>
         <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
       </select>
     </fieldset>
     <br>
     <button (click)="submitCall(clientName.value, companyName.value, email.value, location.value, date.value, phoneNumber.value, description.value); clientName.value=''; companyName.value=''; email.value=''; location.value=''; date.value=''; phoneNumber.value=''; description.value=''" class="btn btn-primary">Add a phone call</button>
-  </form>
+
+
+</form>
 
   <div class="col-sm-6">
     <app-calendar></app-calendar>
   </div>
-
-
-</div>

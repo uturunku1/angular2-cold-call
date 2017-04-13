@@ -17,6 +17,7 @@ export class AF {
    * Logs out the current user
    */
   logout() {
+    location.reload();
     return this.af.auth.logout();
   }
 }

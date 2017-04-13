@@ -7,17 +7,18 @@
 <label>Location: </label>
 <input [(ngModel)]="call.phoneNumber">
 <label>Date: </label>
-<input [(ngModel)]="call.date">
+<input type="date" [(ngModel)]="call.date">
+<br><br>
 <label>email: </label>
 <input [(ngModel)]="call.email">
-<br><br>
 <label>Phone: </label>
-<input [(ngModel)]="call.description">
+<input [(ngModel)]="call.location">
+<br><br>
 <label>Points: </label>
 <input [(ngModel)]="call.points">
 <br><br>
 <label >Description: </label> <br>
-<textarea class="form-control edit-description-textarea" [(ngModel)]="call.location"></textarea>
+<textarea class="form-control edit-description-textarea" [(ngModel)]="call.description"></textarea>
 <br><br>
 <button class="btn btn-primary" (click)="submitEdit(call)">Submit</button>
-<button class="btn btn-danger" (click)="delete(call)">Delete this client</button>
+<button class="btn btn-danger" (click)="delete(call)">x Delete this client</button>

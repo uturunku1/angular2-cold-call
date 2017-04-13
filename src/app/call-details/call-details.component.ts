@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Call } from '../call.model';
 import { FirebaseObjectObservable } from 'angularfire2';
 import { Location } from '@angular/common';
@@ -15,7 +15,7 @@ import { EditCallComponent } from '../edit-call/edit-call.component'
 export class CallDetailsComponent implements OnInit {
   callToDisplay;
   callId: string;
-  // editCallForm;
+  editCallForm;
   formShow = false;
   constructor(private activatedRoute: ActivatedRoute,
     private location: Location,
@@ -27,7 +27,6 @@ export class CallDetailsComponent implements OnInit {
     });
     this.callService.getCallById(this.callId).subscribe(dataLastEmittedFromObserver=>{
       this.callToDisplay = dataLastEmittedFromObserver;
-      console.log(this.callToDisplay);
     });
   }
 
@@ -35,13 +34,13 @@ export class CallDetailsComponent implements OnInit {
     this.formShow =  true;
   }
 
-  //
-  // toggleEditForm(call) {
-  //   if (this.editCallForm == call) {
-  //     this.editCallForm = null;
-  //   } else {
-  //     this.editCallForm = call;
-  //   }
-  // }
+
+  toggleEditForm(call) {
+    if (this.editCallForm == call) {
+      this.editCallForm = null;
+    } else {
+      this.editCallForm = call;
+    }
+  }
 
 }
