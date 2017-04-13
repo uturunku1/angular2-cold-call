@@ -1,30 +1,10 @@
-
 .link {
-  color: blue;
+  color: #5cb85c;
   text-decoration: underline;
 }
 
 .link:hover {
   cursor: pointer;
-}
-
-.points {
-  width: 230px;
-  float: left;
-  margin-right: 15px;
-}
-
-.panel-body {
-  text-align: center;
-}
-
-.panel {
-  border-radius: 5px;
-}
-
-.panel-heading {
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
 }
 
 .teal-panel-heading {
@@ -36,24 +16,7 @@ th {
   color: teal;
 }
 
-
 tr,
 td {
   font-size: 120%;
-}
-
-#scoreBoard {
-  width: 850px;
-  height: 120px;
-  text-align: center;
-  display: block;
-  margin: auto;
-}
-
-#pointLabel {
-  float: right;
-}
-
-.form-float {
-  float: right;
 }

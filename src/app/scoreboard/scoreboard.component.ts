@@ -8,7 +8,7 @@ import { CallService } from '../call.service';
   styleUrls: ['./scoreboard.component.css']
 })
 export class ScoreboardComponent implements OnInit {
-  @Input() callId;
+  @Input() userKey;
 
   displayPoints: number[] = [0, 0, 0, 0, 0];
   todaysPoints: number[] = [];
@@ -17,15 +17,14 @@ export class ScoreboardComponent implements OnInit {
   today: Date;
   todayFormatted;
   pointsFromDate;
-
   subscription;
-  userKey: string;
 
   constructor(private callService: CallService) { }
 
   ngOnInit() {
     this.today = new Date();
     this.todayFormatted = this.today.getFullYear() + "-" + "0" + (this.today.getMonth() + 1) + "-" + this.today.getDate();
+    this.resetPoints();
 
     this.callService.getCallsUserId(this.userKey).subscribe(result => {
       this.subscription = result;
