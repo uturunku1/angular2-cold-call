@@ -45,7 +45,7 @@ export class CalendarComponent implements OnInit {
   deleteEvent(thisTask){
     if(confirm("Do you wan to delete this event from your calendar?")){
       this.taskService.deleteTaskFirebase(thisTask);
-      
+      this.router.navigate(['index', this.userId]);
     }
   }
 
