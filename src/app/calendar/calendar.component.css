@@ -1,3 +1,7 @@
 .calendarForm{
   background-color: green;
 }
+
+.today {
+  font-size: 150%;
+}

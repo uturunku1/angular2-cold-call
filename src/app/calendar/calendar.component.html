@@ -1,9 +1,10 @@
+<h3>Today's Date: {{todayFormatted}}</h3>
+<br>
 <legend>Upcoming events in your calendar
   <div *ngIf='!calendarForm' (click)="toggleButton()" class="btn">
-    Add event
+    + Add event
   </div>
 </legend>
-{{todayFormatted}}
 <div *ngIf="calendarForm">
     <form class="form-group">
       <label>What?</label>
@@ -14,10 +15,10 @@
     </form>
     <hr>
 </div>
-<br><br>
 <div *ngFor="let task of tasks | async | event:filterByToday">
   <h4>{{task.what}}</h4>
   <h4>On this day: {{task.when}}</h4>
   <button (click)="deleteEvent(task)" class="btn btn-danger">Delete event</button>
+  <br><br>
 </div>
 <br>

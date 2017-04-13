@@ -24,8 +24,9 @@ export class CalendarComponent implements OnInit {
    }
 
   ngOnInit() {
+
     this.currentDate = new Date();
-    this.todayFormatted = this.currentDate.getFullYear() + "-" + "0" + (this.currentDate.getMonth() + 1) + "-" + this.currentDate.getDate();
+    this.todayFormatted = (this.currentDate.getMonth() + 1) + "/" + this.currentDate.getDate() + "/" + this.currentDate.getFullYear();
 
     this.route.params.forEach((urlParameter) => {
       this.userId = urlParameter['id'];

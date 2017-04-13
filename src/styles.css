@@ -85,6 +85,22 @@ select {
   /*end    EDIT FORM    STYLING*/
 
 
+  /*begin  ADD-CALL COMPONENT    STYLING*/
+.displayFlex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-new-Description {
+  width: 600px;
+}
+
+.add-new-Height {
+  height: 30px;
+}
+  /*end    ADD-CALL COMPONENT   STYLING*/
+
+
 
   /*begin      STYLING*/
   /*end       STYLING*/

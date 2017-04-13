@@ -16,6 +16,7 @@ import {AF} from "./providers/af";
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { EventPipe } from './event.pipe';
+import { AddCallComponent } from './add-call/add-call.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -38,6 +39,7 @@ export const firebaseConfig = {
     LoginPageComponent,
     CalendarComponent,
     EventPipe,
+    AddCallComponent,
 
     //providers: [AFLoginPageComponent],
   ],
