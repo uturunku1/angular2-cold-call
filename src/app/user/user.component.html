@@ -1,6 +1,6 @@
 
 
-<div id='scoreBoard'>
+<!-- <div id='scoreBoard'>
   <div class='points'>
     <div class='panel panel-info'>
       <div class='panel-heading teal-panel-heading'>
@@ -36,7 +36,9 @@
 
 </div>
 
-<p id='pointLabel'>Points since <input [(ngModel)]='date' type='date' (change)='setDate(date)'></p>
+<p id='pointLabel'>Points since <input [(ngModel)]='date' type='date' (change)='setDate(date)'></p> -->
+<app-scoreboard [callId]='userId'></app-scoreboard>
+
 
 <div>
   <button (click)="toggleNewCall()" class="btn">
