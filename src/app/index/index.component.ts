@@ -23,15 +23,5 @@ export class IndexComponent implements OnInit {
     });
   }
 
-  selectScore(selectedNumber){
-    this.points= selectedNumber;
-  }
-
-  submitCall(clientName: string, companyName: string, email: string, location: string, date: string, phoneNumber: string, description: string, userId: string){
-    let newCall = new Call(clientName, companyName, email, location, date, phoneNumber, description, this.points, this.userId);
-    this.callService.addCall(newCall);
-    this.router.navigate(['user', this.userId]);
-  }
-
 
 }

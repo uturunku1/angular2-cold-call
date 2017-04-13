@@ -1,0 +1,45 @@
+<div class="row">
+  <form class="form-horizontal col-sm-12">
+    <fieldset>
+      <legend>Add a new phone call</legend>
+      <div class="displayFlex">
+        <label>Client's name</label>
+        <input type="text"  #clientName>
+
+        <label>Company's name</label>
+        <input type="text"  #companyName>
+
+        <label>Email</label>
+        <input type="text"  #email>
+
+        <label>Location</label>
+        <input type="text"  #location>
+        <label>Date</label>
+        <input type="date"  #date>
+      </div>
+        <br><br>
+      <div class="displayFlex">
+        <label>Phone Number</label>
+        <input type="text"  #phoneNumber class="add-new-Height">
+
+        <label for="" >Select your score points</label>
+        <select (change)="selectScore($event.target.value)" class="add-new-Height">
+          <option value=0>0</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=4>4</option>
+          <option value=5>5</option>
+        </select>
+        <br><br>
+
+        <label for="textArea">Notes</label>
+        <textarea class="add-new-Description add-new-Height" #description></textarea>
+
+      </div>
+    </fieldset>
+    <br>
+    <button (click)="submitCall(clientName.value, companyName.value, email.value, location.value, date.value, phoneNumber.value, description.value); clientName.value=''; companyName.value=''; email.value=''; location.value=''; date.value=''; phoneNumber.value=''; description.value=''" class="btn btn-primary">Save phone call</button>
+  
+  </form>
+</div>

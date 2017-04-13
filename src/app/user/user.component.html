@@ -36,8 +36,21 @@
 
 </div>
 
+<p id='pointLabel'>Points since <input [(ngModel)]='date' type='date' (change)='setDate(date)'></p>
 
-<p id='pointLabel'>Points since <input [(ngModel)]='date' type='date' (change)='setDate(date)'></p><br><br>
+<div>
+  <button (click)="toggleNewCall()" class="btn">
+    <span *ngIf="!showNew">+ Add a call</span>
+    <span *ngIf="showNew">- Hide</span>
+  </button>
+</div>
+<br>
+<div *ngIf="showNew">
+  <app-add-call></app-add-call>
+</div>
+
+<br><br>
+
 <label>Filter calls by: </label>
 <select [(ngModel)]='filter'>
   <option></option>
@@ -73,7 +86,7 @@
         <th>Points</th>
       </tr>
     </thead>
-    
+
     <tbody *ngFor='let call of calls | async | callFilter:filter:text | date:filterByDate:selectedDate'>
       <tr>
         <td (click)="checkDetails(call)" class="clickable">{{call.date}}</td>

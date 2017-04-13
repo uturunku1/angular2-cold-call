@@ -14,6 +14,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class UserComponent implements OnInit {
   calls: FirebaseListObservable<any[]>;
 
+  showNew: boolean = false;
+
   displayPoints: number[] = [0, 0, 0, 0, 0];
   todaysPoints: number[] = [];
   totalPoints: number[] = [];
@@ -111,5 +113,15 @@ export class UserComponent implements OnInit {
       this.editCallForm = call;
     }
   }
+
+
+  toggleNewCall() {
+    if (!this.showNew) {
+      this.showNew = true;
+    } else {
+      this.showNew = false;
+    }
+  }
+
 
 }
