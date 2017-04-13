@@ -18,6 +18,7 @@ export class CalendarComponent implements OnInit {
   calendarForm=false;
   currentDate: Date;
   todayFormatted: any;
+  filterByToday: string = "all";
   constructor(public taskService: TaskService, private router: Router, private route: ActivatedRoute) {
 
    }
@@ -54,5 +55,8 @@ export class CalendarComponent implements OnInit {
       this.router.navigate(['index', this.userId]);
     }
   }
+  onChange(optionFromMenu) {
+   this.filterByToday = optionFromMenu;
+ }
 
 }

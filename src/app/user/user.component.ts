@@ -32,6 +32,7 @@ export class UserComponent implements OnInit {
   constructor(private router: Router, private callService: CallService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log(this.router.url);
     this.today = new Date();
     this.todayFormatted = this.today.getFullYear() + "-" + "0" + (this.today.getMonth() + 1) + "-" + this.today.getDate();
 
