@@ -3,13 +3,13 @@ import { Call } from './call.model';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Router } from '@angular/router';
 import { AF } from "./providers/af";
-
+import {LocalStorageService, SessionStorageService} from 'ng2-webstorage';
 @Injectable()
 export class CallService {
   calls: FirebaseListObservable<any[]>;
   private userId: string;
 
-  constructor(private angularFire: AngularFire, private router: Router, public afService: AF) {
+  constructor(private sessionSt:SessionStorageService,private angularFire: AngularFire, private router: Router, public afService: AF) {
     this.calls = angularFire.database.list('calls');
 
     this.afService.af.auth.subscribe(
