@@ -15,8 +15,13 @@ import { DatePipe } from './date.pipe';
 import {AF} from "./providers/af";
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CalendarComponent } from './calendar/calendar.component';
+
 import { ChallengeComponent } from './challenge/challenge.component';
 import {Ng2Webstorage} from 'ng2-webstorage';
+
+import { EventPipe } from './event.pipe';
+import { AddCallComponent } from './add-call/add-call.component';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -38,9 +43,13 @@ export const firebaseConfig = {
     EditCallComponent,
     LoginPageComponent,
     CalendarComponent,
+
     ChallengeComponent,
 
-    //providers: [AFLoginPageComponent],
+    EventPipe,
+    AddCallComponent,
+    ScoreboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -49,7 +58,6 @@ export const firebaseConfig = {
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
     Ng2Webstorage,
-    //RouterModule.forRoot(routes)
 
   ],
   providers: [AF],

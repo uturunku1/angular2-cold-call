@@ -16,10 +16,18 @@ export class CalendarComponent implements OnInit {
   userId;
   tasks: FirebaseListObservable<any[]>;
   calendarForm=false;
-  currentDate: any;
-  constructor(public taskService: TaskService, private router: Router, private route: ActivatedRoute) { this.currentDate = new Date().getTime(); }
+  currentDate: Date;
+  todayFormatted: any;
+  filterByToday: string = "all";
+  constructor(public taskService: TaskService, private router: Router, private route: ActivatedRoute) {
+
+   }
 
   ngOnInit() {
+
+    this.currentDate = new Date();
+    this.todayFormatted = (this.currentDate.getMonth() + 1) + "/" + this.currentDate.getDate() + "/" + this.currentDate.getFullYear();
+
     this.route.params.forEach((urlParameter) => {
       this.userId = urlParameter['id'];
     });
@@ -45,8 +53,11 @@ export class CalendarComponent implements OnInit {
   deleteEvent(thisTask){
     if(confirm("Do you wan to delete this event from your calendar?")){
       this.taskService.deleteTaskFirebase(thisTask);
-      
+      this.router.navigate(['index', this.userId]);
     }
   }
+  onChange(optionFromMenu) {
+   this.filterByToday = optionFromMenu;
+ }
 
 }
