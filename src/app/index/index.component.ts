@@ -21,15 +21,10 @@ export class IndexComponent implements OnInit {
     this.route.params.forEach((urlParameter) => {
       this.userId = urlParameter['id'];
     });
-    // this.calls = this.callService.getCallsUserId(this.userId);
   }
 
   selectScore(selectedNumber){
     this.points= selectedNumber;
-  }
-
-  getUserId(){
-
   }
 
   submitCall(clientName: string, companyName: string, email: string, location: string, date: string, phoneNumber: string, description: string, userId: string){
@@ -37,5 +32,6 @@ export class IndexComponent implements OnInit {
     this.callService.addCall(newCall);
     this.router.navigate(['user', this.userId]);
   }
+
 
 }

@@ -14,7 +14,7 @@ import { EditCallComponent } from './edit-call/edit-call.component';
 import { DatePipe } from './date.pipe';
 import {AF} from "./providers/af";
 import { LoginPageComponent } from './login-page/login-page.component';
-
+import { CalendarComponent } from './calendar/calendar.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -35,6 +35,8 @@ export const firebaseConfig = {
     CallDetailsComponent,
     EditCallComponent,
     LoginPageComponent,
+    CalendarComponent,
+
     //providers: [AFLoginPageComponent],
   ],
   imports: [

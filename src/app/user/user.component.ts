@@ -33,7 +33,6 @@ export class UserComponent implements OnInit {
       });
     });
     this.addTotalPoints(this.totalPoints);
-    console.log(this.totalPoints);
 
     this.route.params.forEach((urlParameter) => {
       this.userKey = urlParameter['id'];

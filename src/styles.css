@@ -13,6 +13,9 @@ h4 {
   border-radius: 5px;
   background-color: teal;
 }
+.btn.btn-danger{
+  background-color: red;
+}
 
 input,
 textarea,
