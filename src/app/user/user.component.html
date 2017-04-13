@@ -73,6 +73,7 @@
         <th>Points</th>
       </tr>
     </thead>
+    
     <tbody *ngFor='let call of calls | async | callFilter:filter:text | date:filterByDate:selectedDate'>
       <tr>
         <td (click)="checkDetails(call)" class="clickable">{{call.date}}</td>
@@ -85,7 +86,7 @@
         <td><span class='link' *ngIf='editCallForm == null' (click)="toggleEditForm(call)">edit</span>
         <span class='link' *ngIf='editCallForm == call' (click)="toggleEditForm(call)">hide</span></td>
       </tr>
-        <p><app-edit-call *ngIf="editCallForm == call" [call]="call"></app-edit-call></p>
+      <p><app-edit-call *ngIf="editCallForm == call" [call]="call"></app-edit-call></p>
     </tbody>
   </table>
 
