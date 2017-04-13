@@ -16,10 +16,16 @@ export class CalendarComponent implements OnInit {
   userId;
   tasks: FirebaseListObservable<any[]>;
   calendarForm=false;
-  currentDate: any;
-  constructor(public taskService: TaskService, private router: Router, private route: ActivatedRoute) { this.currentDate = new Date().getTime(); }
+  currentDate: Date;
+  todayFormatted: any;
+  constructor(public taskService: TaskService, private router: Router, private route: ActivatedRoute) {
+
+   }
 
   ngOnInit() {
+    this.currentDate = new Date();
+    this.todayFormatted = this.currentDate.getFullYear() + "-" + "0" + (this.currentDate.getMonth() + 1) + "-" + this.currentDate.getDate();
+
     this.route.params.forEach((urlParameter) => {
       this.userId = urlParameter['id'];
     });

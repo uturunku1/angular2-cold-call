@@ -3,7 +3,7 @@
     Add event
   </div>
 </legend>
-{{currentDate}}
+{{todayFormatted}}
 <div *ngIf="calendarForm">
     <form class="form-group">
       <label>What?</label>
@@ -15,7 +15,7 @@
     <hr>
 </div>
 <br>
-<div *ngFor="let task of tasks | async">
+<div *ngFor="let task of tasks | async | event:filter:text">
   <h4>{{task.what}}</h4>
   <h4>On this day: {{task.when}}</h4>
   <button (click)="deleteEvent(task)" class="btn btn-danger">Delete event</button>

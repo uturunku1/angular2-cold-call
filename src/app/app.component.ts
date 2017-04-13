@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'Cold Calls: The Greatest Game of All Time Ever!';
   private userId: string;
   public isLoggedIn: boolean;
+  currentRoute: string = this.router.url;
  constructor(public afService: AF, private router: Router) {
    // This asynchronously checks if our user is logged it and will automatically
    // redirect them to the Login page when the status changes.
@@ -21,6 +22,7 @@ export class AppComponent {
      (auth) => {
        if(auth == null) {
          console.log("Not Logged in.");
+         console.log(this.router.url);
          this.router.navigate(['login']);
          this.isLoggedIn = false;
        }
