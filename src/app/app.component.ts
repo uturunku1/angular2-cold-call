@@ -12,7 +12,7 @@ export class AppComponent implements OnInit{
 
   currentRoute: string = this.router.url;
 
-  title = 'Cold Calls: The Greatest Game of All Time Ever!';
+  title = 'Cold Calls: The Greatest Game of All Time Ever';
   private userId: string;
   public isLoggedIn: boolean;
   constructor(public afService: AF, private router: Router) {

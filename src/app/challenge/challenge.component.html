@@ -1,20 +1,31 @@
-<h3>Set up your high goal for the day. You can do it, today is your day, bro!</h3>
-<label>
-Number of calls you want to do:</label>
-<input type="number" min='0' max='50' #goalinput required>
-<br>
-<label>Set timer in minutes:</label>
-<input type="number" min='0' max='120' #timerInput required>
-<br>
-<!-- <button class="btn" (click)='toggleButton()'> -->
-  <button class="btn" *ngIf='!showTimer'(click)="startTimer(goalinput.value, timerInput.value); goalinput.value=''; timerInput.value='';">Start!</button>
-
-  <button class="btn" *ngIf='showTimer' (click)='stopTimer()'>Reset</button>
-<!-- </button> -->
-<div *ngIf='showTimer'>
-  <h2>You must make {{goal}} calls in {{timerSet}} minutes!</h2>
-  <h2>Wooooo! time is running!</h2>
-  <h2>{{minutes}} minutes: {{seconds}} seconds</h2>
+<div class="row">
+  <div class="col-sm-3">
+  </div>
+  <div class="col-sm-6">
+    <div *ngIf='!showTimer'>
+      <h2>Set your goal for today. Today is your day!</h2>
+      <div class="goalForm">
+        <label><h4>Number of calls you want to do:</h4></label>
+        <input type="number" min='0' max='100' #goalinput required>
+        <br>
+        <label><h4>Set timer in minutes:</h4></label>
+        <input type="number" min='0' max='500' #minutesInput required>
+      </div>
+        <button class="btn goalButtons" (click)="startTimer(goalinput.value, minutesInput.value); goalinput.value=''; minutesInput.value='';">Start!</button>
+    </div>
+    <div *ngIf='showTimer'>
+      <h2>You must make {{goal}} calls in:</h2>
+      <h2>{{minutes}} minute(s): {{seconds}} seconds</h2>
+      <h2>Wooooo! time is running!</h2>
+      <button class="btn goalButtons" (click)='resetTimer()'>Reset/stop</button>
+      <button class="btn goalButtons" (click)='done()'>I'm done earlier, bitches!</button>
+    </div>
+    <br>
+  </div>
+  <div class="col-sm-3">
+  </div>
 </div>
-<br>
-<hr>
+<div class="row">
+
+</div>
+    <hr>

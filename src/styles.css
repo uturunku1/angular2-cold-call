@@ -8,8 +8,15 @@ h4 {
   font-family: 'Macondo', cursive;
 }
 
+.goalForm{
+  margin-left: 80px;
+}
+.goalButtons{
+  margin-left: 140px;
+}
 .centerText {
   text-align: center;
+  color: yellow;
 }
 
 .btn {
@@ -57,6 +64,12 @@ select {
  }
 
  /* end    USER LIST    STYLING*/
+
+ /*begin SCOREBOARD*/
+#scoreBoard{
+  
+}
+ /*end SCOREBOARD*/
 
 
   /*begin   DETAIL PAGE   STYLING*/

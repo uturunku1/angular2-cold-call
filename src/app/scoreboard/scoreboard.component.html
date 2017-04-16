@@ -1,37 +1,38 @@
-<div id='scoreBoard'>
-  <div class='points'>
-    <div class='panel panel-info'>
-      <div class='panel-heading teal-panel-heading'>
-        <h3 class='panel-title'>Today's Points</h3>
-      </div>
-      <div class='panel-body'>
-        {{displayPoints[0]}}
+
+  <div id='scoreBoard'>
+    <div class='points'>
+      <div class='panel panel-info'>
+        <div class='panel-heading teal-panel-heading'>
+          <h3 class='panel-title'>Today's Points</h3>
+        </div>
+        <div class='panel-body'>
+          {{displayPoints[0]}}
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class='points'>
-    <div class='panel panel-success'>
-      <div class='panel-heading'>
-        <h3 class='panel-title'>Lifetime Points</h3>
-      </div>
-      <div class='panel-body'>
-        {{displayPoints[3]}}
-      </div>
-    </div>
-  </div>
-
-  <div *ngIf='displayPoints[1]' class='points'>
-    <div class='panel panel-primary'>
-      <div class='panel-heading'>
-        <h3 class='panel-title'>Points Since {{pointsFromDate}}</h3>
-      </div>
-      <div class='panel-body'>
-        {{displayPoints[1]}}
+    <div class='points'>
+      <div class='panel panel-success'>
+        <div class='panel-heading'>
+          <h3 class='panel-title'>Lifetime Points</h3>
+        </div>
+        <div class='panel-body'>
+          {{displayPoints[3]}}
+        </div>
       </div>
     </div>
+
+    <div *ngIf='displayPoints[1]' class='points'>
+      <div class='panel panel-primary'>
+        <div class='panel-heading'>
+          <h3 class='panel-title'>Points Since {{pointsFromDate}}</h3>
+        </div>
+        <div class='panel-body'>
+          {{displayPoints[1]}}
+        </div>
+      </div>
+    </div>
+
   </div>
 
-</div>
-
-<p id='pointLabel'>Points since <input [(ngModel)]='date' type='date' (change)='setDate(date)'></p>
+  <p id='pointLabel'>Check points since: <input [(ngModel)]='date' type='date' (change)='setDate(date)'></p>

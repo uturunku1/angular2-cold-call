@@ -7,7 +7,8 @@ import { CallService } from './../call.service';
 @Component({
   selector: 'app-add-call',
   templateUrl: './add-call.component.html',
-  styleUrls: ['./add-call.component.css']
+  styleUrls: ['./add-call.component.css'],
+  providers: [CallService]
 })
 export class AddCallComponent implements OnInit {
 

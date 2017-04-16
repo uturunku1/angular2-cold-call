@@ -1,11 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { CallService } from '../call.service';
+import { BonusService } from '../bonus.service';
 
 @Component({
   selector: 'app-scoreboard',
   templateUrl: './scoreboard.component.html',
-  styleUrls: ['./scoreboard.component.css']
+  styleUrls: ['./scoreboard.component.css'],
+  providers:[BonusService]
 })
 export class ScoreboardComponent implements OnInit {
   @Input() userKey;
@@ -19,12 +21,23 @@ export class ScoreboardComponent implements OnInit {
   pointsFromDate;
   subscription;
 
-  constructor(private callService: CallService) { }
+  constructor(private bonusService: BonusService, private callService: CallService) { }
 
   ngOnInit() {
+
     this.today = new Date();
     this.todayFormatted = this.today.getFullYear() + "-" + "0" + (this.today.getMonth() + 1) + "-" + this.today.getDate();
     this.resetPoints();
+
+    this.bonusService.getBonusPoints(this.userKey).subscribe(result=>{
+      this.subscription = result;
+      this.subscription.forEach(bonus => {
+        this.totalPoints.push(parseInt(bonus['points']));
+        this.todaysPoints.push(parseInt(bonus['points']));
+        this.calculatePoints(this.todaysPoints, 0);
+        this.calculatePoints(this.totalPoints, 3);
+      });
+    });
 
     this.callService.getCallsUserId(this.userKey).subscribe(result => {
       this.subscription = result;
@@ -42,6 +55,10 @@ export class ScoreboardComponent implements OnInit {
       });
     });
   }
+  // bonusPoints(){
+  //   this.displayPoints[0] += 2;
+  //   this.displayPoints[3] +=2;
+  // }
 
   pointsSinceDate(callDate) {
     if (callDate > this.pointsFromDate) {
@@ -77,5 +94,6 @@ export class ScoreboardComponent implements OnInit {
       this.displayPoints[pointType] += points[i];
     }
   }
+
 
 }

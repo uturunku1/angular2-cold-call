@@ -1,48 +1,71 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {Subscription} from "rxjs";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
+import { Call } from './../call.model';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { BonusService } from './../bonus.service';
 
 
 @Component({
   selector: 'app-challenge',
   templateUrl: './challenge.component.html',
-  styleUrls: ['./challenge.component.css']
+  styleUrls: ['./challenge.component.css'],
+  providers:[BonusService]
 })
 export class ChallengeComponent implements OnInit {
   showTimer= false;
   goal: number;
-  timerSet;
-  seconds = 0;
+  seconds = 59;
   minutes = 0;
-  hours =0;
   private subscription1: Subscription;
   private subscription2: Subscription;
-  private subscription3: Subscription;
+  bonusPoints ='2';
+  @Input() userKey;
+  // @Output() addBonus= new EventEmitter();
 
-  constructor() { }
+  constructor(public bonusService: BonusService) { }
   ngOnInit() {
   }
-  // toggleButton(){
-  //   this.showTimer= !this.showTimer;
-  // }
-  startTimer(goalinput,timerInput){
+  setTimer(second){
+    this.seconds = second;
+    if(second<0){
+      this.seconds=59;
+    }
+  }
+
+  startTimer(goalinput,minutesInput){
     this.showTimer=true;
     this.goal = goalinput;
-    this.timerSet=timerInput;
-    let timer1 = Observable.timer(0, 1000);
-    let timer2 = Observable.timer(0,60000);
-    let timer3 = Observable.timer(0,8000);
+    this.minutes= parseInt(minutesInput)-1;
 
-    this.subscription1 = timer1.subscribe(t=>this.seconds = t);
-    this.subscription2= timer2.subscribe(t=>this.minutes = t);
-    this.subscription3=timer3.subscribe(t=>this.hours = t);
+    this.subscription1 = Observable
+    .interval(1000)
+    .map(s=>this.seconds - 1)
+    .subscribe(s=>this.setTimer(s));
+    setTimeout(()=>{this.subscription1.unsubscribe();}, ((this.minutes + 1)*60000)-1000);
+
+    this.subscription2= Observable
+    .interval(60000)
+    .take(this.minutes)
+    .map((m) => this.minutes-1)
+    .subscribe(m=>this.minutes = m);
   }
-  stopTimer(){
+  resetTimer(){
     this.showTimer=false;
     this.subscription1.unsubscribe();
     this.subscription2.unsubscribe();
-    this.subscription3.unsubscribe();
+  }
+  done(){
+    alert("You rock! 2 additional points have been added to your score.")
+    this.showTimer=false;
+    this.subscription1.unsubscribe();
+    this.subscription2.unsubscribe();
+    var newBonusPoints = {
+      points: this.bonusPoints,
+      userId: this.userKey
+    };
+    this.bonusService.addBonus(newBonusPoints);
+    // this.addBonus.emit(null);
   }
 
 }

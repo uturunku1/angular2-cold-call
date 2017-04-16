@@ -1,10 +1,10 @@
 <h3>Today's Date: {{todayFormatted}}</h3>
 <br>
-<legend>Upcoming events in your calendar
+<h3>Upcoming events in your calendar
   <div *ngIf='!calendarForm' (click)="toggleButton()" class="btn">
     + Add event
   </div><br><br>
-</legend>
+</h3>
 <div *ngIf="calendarForm">
     <form class="form-group">
       <label>What?</label>

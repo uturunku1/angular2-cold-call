@@ -1,11 +1,12 @@
 <div class='row'>
   <div class="col-sm-12">
-    <app-scoreboard [userKey]='userId'></app-scoreboard>
+    <app-scoreboard #score [userKey]='userId'></app-scoreboard>
+
   </div>
 </div>
 
 <div class="row">
-  <app-challenge></app-challenge>
+  <app-challenge (addBonus)="score.bonusPoints()" [userKey]='userId'></app-challenge>
 </div>
 
 <div class="col-sm-12">
