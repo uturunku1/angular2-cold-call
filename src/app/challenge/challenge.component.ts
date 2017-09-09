@@ -16,7 +16,7 @@ export class ChallengeComponent implements OnInit {
   showTimer= false;
   goal: number;
   seconds = 59;
-  minutes = 0;
+  minutes:number;
   private subscription1: Subscription;
   private subscription2: Subscription;
   bonusPoints ='2';
@@ -30,6 +30,22 @@ export class ChallengeComponent implements OnInit {
     this.seconds = second;
     if(second<0){
       this.seconds=59;
+    }
+  }
+  setTimer2(minute){
+    this.minutes= minute;
+    if(minute<0){
+      this.subscription2.unsubscribe();
+      this.showTimer=false;
+      if(confirm("Time is out! Did you accomplish your goal? Click 'cancel' for 'no' and no extra points for you this time.")){
+        var newBonusPoints = {
+          points: this.bonusPoints,
+          userId: this.userKey
+        };
+        this.bonusService.addBonus(newBonusPoints);
+        alert("Congrats! You received 2 extra points.")
+        location.reload();
+      }
     }
   }
 
@@ -46,9 +62,11 @@ export class ChallengeComponent implements OnInit {
 
     this.subscription2= Observable
     .interval(60000)
-    .take(this.minutes)
-    .map((m) => this.minutes-1)
-    .subscribe(m=>this.minutes = m);
+    // .take(this.minutes)
+    .map(m=>this.minutes - 1)
+    .subscribe(m=>this.setTimer2(m));
+
+
   }
   resetTimer(){
     this.showTimer=false;
@@ -56,15 +74,16 @@ export class ChallengeComponent implements OnInit {
     this.subscription2.unsubscribe();
   }
   done(){
-    alert("You rock! 2 additional points have been added to your score.")
+    alert("You rock! 3 additional points have been added to your score.")
     this.showTimer=false;
     this.subscription1.unsubscribe();
     this.subscription2.unsubscribe();
     var newBonusPoints = {
-      points: this.bonusPoints,
+      points: '3',
       userId: this.userKey
     };
     this.bonusService.addBonus(newBonusPoints);
+    location.reload();
     // this.addBonus.emit(null);
   }
 

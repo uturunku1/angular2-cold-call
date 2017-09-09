@@ -1,23 +1,27 @@
 
-<app-scoreboard [userKey]='userKey'></app-scoreboard>
+<!-- <app-scoreboard [userKey]='userKey'></app-scoreboard> -->
 
 
-<div>
-  <button (click)="toggleNewCall()" class="btn">
+<div class="col-sm-12">
+  <!-- <button (click)="toggleNewCall()" class="btn">
     <span *ngIf="!showNew">+ Add a call</span>
     <span *ngIf="showNew">- Hide</span>
   </button>
+
 </div>
 <br>
-<div *ngIf="showNew">
+<div *ngIf="showNew"> -->
   <app-add-call></app-add-call>
 </div>
 
+
 <br><br>
+<br>
+<hr>
 
 <label>Filter calls by: </label>
 <select [(ngModel)]='filter'>
-  <option></option>
+  <option>select</option>
   <option value='location'>Location</option>
   <option value='business'>Business Name</option>
   <option value='client'>Client Name</option>
@@ -27,7 +31,7 @@
 
 <label>Timeframe</label>
 <select [(ngModel)]='filterByDate'>
-  <option></option>
+  <option>select</option>
   <option value='on'>On</option>
   <option value='before'>Before</option>
   <option value='after'>After</option>

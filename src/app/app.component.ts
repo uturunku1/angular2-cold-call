@@ -12,8 +12,8 @@ export class AppComponent implements OnInit{
 
   currentRoute: string = this.router.url;
 
-  title = 'Cold Calls: The Greatest Game of All Time Ever';
-  private userId: string;
+  title = 'Cold Call: The Greatest Game of All Time Ever';
+  public userId: string;
   public isLoggedIn: boolean;
   constructor(public afService: AF, private router: Router) {
    // This asynchronously checks if our user is logged it and will automatically

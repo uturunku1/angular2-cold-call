@@ -18,6 +18,10 @@ export class UserComponent implements OnInit {
   callToDisplay: Call;
   userKey: string;
   editCallForm;
+  filter;
+  text;
+  filterByDate;
+  selectedDate;
 
   constructor(private router: Router, private callService: CallService, private route: ActivatedRoute) { }
 

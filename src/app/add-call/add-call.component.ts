@@ -14,11 +14,17 @@ export class AddCallComponent implements OnInit {
 
   calls: FirebaseListObservable<any[]>;
   points: number = 0;
-  userId;
+  userId: string;
+  today;
+  todayFormatted;
+  formShow=false;
 
   constructor(public callService: CallService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.today = new Date();
+    this.todayFormatted = this.today.getFullYear() + "-" + "0" + (this.today.getMonth() + 1) + "-" + "0"+ this.today.getDate();
+
     this.route.params.forEach((urlParameter) => {
       this.userId = urlParameter['id'];
     });
@@ -27,11 +33,20 @@ export class AddCallComponent implements OnInit {
   selectScore(selectedNumber){
     this.points= selectedNumber;
   }
+  toggleButton(){
+    this.formShow= !this.formShow;
+  }
 
-  submitCall(clientName: string, companyName: string, email: string, location: string, date: string, phoneNumber: string, description: string, userId: string){
+  submitCall(clientName: string, companyName: string, email: string, location: string, date: string, phoneNumber: string, description: string){
     let newCall = new Call(clientName, companyName, email, location, date, phoneNumber, description, this.points, this.userId);
     this.callService.addCall(newCall);
     this.router.navigate(['user', this.userId]);
+    this.formShow= false;
   }
+  // submitCall(clientName: string, companyName: string, email: string, location: string, date: string, phoneNumber: string, description: string, userId: string){
+  //   let newCall = new Call(clientName, companyName, email, location, date, phoneNumber, description, this.points, this.userId);
+  //   this.callService.addCall(newCall);
+  //   this.router.navigate(['user', this.userId]);
+  // }
 
 }

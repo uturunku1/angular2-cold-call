@@ -18,6 +18,10 @@
     ],
     "types":[
       "firebase"
-    ]
+    ],
+    "paths": {
+      "@angular/*": ["../node_modules/@angular/*"]
+    }
+
   }
 }

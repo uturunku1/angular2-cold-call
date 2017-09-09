@@ -12,7 +12,7 @@ import { BonusService } from '../bonus.service';
 export class ScoreboardComponent implements OnInit {
   @Input() userKey;
 
-  displayPoints: number[] = [0, 0, 0, 0, 0];
+  displayPoints: number[] = [];
   todaysPoints: number[] = [];
   totalPoints: number[] = [];
   pointsFromCustomDate: number[] = [];
@@ -26,7 +26,7 @@ export class ScoreboardComponent implements OnInit {
   ngOnInit() {
 
     this.today = new Date();
-    this.todayFormatted = this.today.getFullYear() + "-" + "0" + (this.today.getMonth() + 1) + "-" + this.today.getDate();
+    this.todayFormatted = this.today.getFullYear() + "-" + "0" + (this.today.getMonth() + 1) + "-" + "0"+ this.today.getDate();
     this.resetPoints();
 
     this.bonusService.getBonusPoints(this.userKey).subscribe(result=>{
@@ -34,9 +34,9 @@ export class ScoreboardComponent implements OnInit {
       this.subscription.forEach(bonus => {
         this.totalPoints.push(parseInt(bonus['points']));
         this.todaysPoints.push(parseInt(bonus['points']));
-        this.calculatePoints(this.todaysPoints, 0);
-        this.calculatePoints(this.totalPoints, 3);
       });
+      // this.calculatePoints(this.todaysPoints, 0);
+      // this.calculatePoints(this.totalPoints, 3);
     });
 
     this.callService.getCallsUserId(this.userKey).subscribe(result => {
@@ -93,6 +93,7 @@ export class ScoreboardComponent implements OnInit {
     for (var i = 0; i < points.length; i++) {
       this.displayPoints[pointType] += points[i];
     }
+    return this.displayPoints[pointType];
   }
 
 
